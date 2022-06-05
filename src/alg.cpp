@@ -5,7 +5,7 @@
 #include  <cstdlib>
 #include  "tree.h"
 
-std::vector<char> getPerm(const Tree& tree, int n) {
+std::vector<char> getPerm(const Tree& tree, int h) {
   // напишите реализацию
-    return Tree(tree).GetPermutation(tree, n);
+    return Tree(tree).GetPermutation(tree, h);
 }
