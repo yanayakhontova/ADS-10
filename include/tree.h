@@ -20,8 +20,8 @@ class Tree {
     return perm[a];
     }
 
-    std::vector<char> GetPermutation(const Tree& tree, int h) {
-        std::string r = tree[h-1];
+    std::vector<char> GetPermutation(const Tree& tree, int n) {
+        std::string r = tree[n-1];
         std::vector<char> perm;
         for (int a = 0; a < r.length(); ++a) {
             perm.push_back(r[a]);
