@@ -13,18 +13,18 @@ class Tree {
         SetNode(root, x);
         Prop(root);
     }
-    std::string operator[](int a) const {
-        if (a >= perm.size()) {
+    std::string operator[](int j) const {
+        if (j >= perm.size()) {
             return "";
         }
-    return perm[a];
+    return perm[j];
     }
 
     std::vector<char> GetPermutation(const Tree& tree, int n) {
-        std::string r = tree[n-1];
+        std::string res = tree[n-1];
         std::vector<char> perm;
-        for (int a = 0; a < r.length(); ++a) {
-            perm.push_back(r[a]);
+        for (int j = 0; j < res.length(); ++j) {
+            perm.push_back(res[j]);
         }
       return perm;
     }
@@ -41,41 +41,41 @@ class Tree {
      return;
     }
         if (root->value != '/') {
-            std::vector<char>::iterator b = Numbs.begin();
-            while (b != Numbs.end()) {
-                if (*b == root->value) {
-                    Numbs.erase(b);
+            std::vector<char>::iterator v = Numbs.begin();
+            while (v != Numbs.end()) {
+                if (*v == root->value) {
+                    Numbs.erase(v);
                     break;
                 }
-                b++;
+                v++;
             }
         }
-    int a = 0;
-        while (a < Numbs.size()) {
+    int j = 0;
+        while (j < Numbs.size()) {
             root->current.push_back(new Node);
-            a++;
+            j++;
         }
-        for (int a = 0; a < root->current.size(); ++a) {
-            root->current[a]->value = Numbs[a];
+        for (int j = 0; j < root->current.size(); ++j) {
+            root->current[j]->value = Numbs[j];
         }
-        for (int a = 0; a < root->current.size(); ++a) {
-            SetNode(root->current[a], Numbs);
+        for (int j = 0; j < root->current.size(); ++j) {
+            SetNode(root->current[j], Numbs);
         }
     }
 
-    void Prop(Node* root, std::string w = "") {
+    void Prop(Node* root, std::string s = "") {
         if (!root->current.size()) {
-            w = w + root->value;
+            s = s + root->value;
             perm.push_back(s);
             return;
         }
         if (root->value != '/') {
-            w = w + root->value;
+            s = s + root->value;
         }
-        int a = 0;
-        while (a < root->current.size()) {
-            Prop(root->current[a], w);
-            a++;
+        int j = 0;
+        while (j < root->current.size()) {
+            Prop(root->current[j], s);
+            j++;
         }
     }
 };
